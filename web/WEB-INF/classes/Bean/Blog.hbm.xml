@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="Bean">
+    <class name="Blog" table="blog" lazy="false">
+        <id name="id">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="title"></property>
+        <property name="content"></property>
+
+        <set name="users" table="u_b" inverse="true">
+            <key column="blog"></key>
+            <many-to-many column="userId" class="Bean.User"></many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

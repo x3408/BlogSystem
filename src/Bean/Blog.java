@@ -1,9 +1,13 @@
 package Bean;
 
+import java.util.Set;
+
 public class Blog {
     private String id;
     private String title;
     private String content;
+
+    private Set<User> users;
 
     public String getId() {
         return id;
@@ -27,5 +31,13 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }

@@ -13,7 +13,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-<form id="login" class="form-horizontal" action="${pageContext.request.contextPath}/loginServlet" method="post" style="margin-left: 650px; margin-top: 200px">
+<form id="login" class="form-horizontal" action="${pageContext.request.contextPath}/user_login.action" method="post" style="margin-left: 650px; margin-top: 200px">
     <div class="control-group">
         <label class="control-label" for="username" >用户名</label>
         <div class="controls">
@@ -23,7 +23,7 @@
     <div class="control-group">
         <label class="control-label" for="inputPassword">Password</label>
         <div class="controls">
-            <input type="password" id="inputPassword" name="inputPassword" placeholder="Password">
+            <input type="password" id="inputPassword" name="password" placeholder="Password">
         </div>
     </div>
     <div class="control-group">

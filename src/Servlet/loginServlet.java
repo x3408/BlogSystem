@@ -27,6 +27,7 @@ public class loginServlet extends HttpServlet {
             request.setAttribute("msg","用户名或密码不正确");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         } else {
+            //自动登录
             String login = request.getParameter("login");
             if("true".equals(login)) {
                 Cookie cookie = new Cookie("autoLogin",

@@ -31,6 +31,7 @@ public class showBlogServlet extends HttpServlet {
 //        BlogPage blogPage = bs.showPage(page);
         BlogPage blogPage = bs.showPage(page, user);
 
+        System.out.println(blogPage.getList().get(0).getTitle());
 
         request.getSession().setAttribute("blogPage", blogPage);
         request.getSession().setAttribute("blog", blogPage.getList());

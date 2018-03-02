@@ -30,10 +30,10 @@ public class addEssayServlet extends HttpServlet {
 
         String title = request.getParameter("title");
         String content = request.getParameter("content");
-        String id = UUID.randomUUID().toString();
+//        String id = UUID.randomUUID().toString();
 
         Blog blog = new Blog();
-        blog.setId(id);
+//        blog.setId(id);
         blog.setContent(content);
         blog.setTitle(title);
 

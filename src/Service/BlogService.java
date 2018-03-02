@@ -5,6 +5,9 @@ import Bean.BlogPage;
 import Bean.User;
 import DAO.BlogDAO;
 import DAO.DAOImp.BlogDAOImp;
+import Utils.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -59,8 +62,11 @@ public class BlogService {
             totalPage = totalCount / limit + 1;
 
         BlogDAO dao = new BlogDAOImp();
+        Session currentSession = HibernateUtil.getCurrentSession();
+        Transaction transaction = currentSession.beginTransaction();
         List<Blog> list = dao.findPage(user, page, limit);
 
+        transaction.commit();
         BlogPage blogPage = new BlogPage();
         blogPage.setPage(page);
         blogPage.setLimit(limit);
@@ -72,8 +78,17 @@ public class BlogService {
     }
 
     public boolean addEssay(Blog blog, User user) {
+        /*BlogDAO dao = new BlogDAOImp();
+        boolean flag = dao.addEssay(blog, user);
+        return flag;*/
+        Session session = HibernateUtil.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
         BlogDAO dao = new BlogDAOImp();
         boolean flag = dao.addEssay(blog, user);
+
+        transaction.commit();
+
         return flag;
     }
 }

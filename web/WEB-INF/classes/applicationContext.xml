@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <!--DAO-->
+    <bean class="DAO.DAOImp.UserDAOImp" name="userDAOImp"></bean>
+
+
+    <!--Service-->
+    <bean class="Service.UserService" name="userService">
+        <property name="dao" ref="userDAOImp"></property>
+    </bean>
+
+
+    <!--Action-->
+    <bean class="Action.UserAction" name="userAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+    </bean>
+
+    <!--读取c3p0配置文件-->
+    <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
+    <!--配置连接池-->
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" name="dataSource">
+        <property name="driverClass" value="${jdbc.driverClass}"></property>
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+        <property name="user" value="${jdbc.user}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+    <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="sessionFactory">
+        <!--将连接池注入sessionFactory中-->
+        <property name="dataSource" ref="dataSource"></property>
+        <!--配置hibernate-->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+
+        <!--实体映射配置-->
+        <property name="mappingDirectoryLocations" value="classpath:Bean"></property>
+    </bean>
+
+    <bean name="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+</beans>

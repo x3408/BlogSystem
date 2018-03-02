@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
 import java.util.Map;
+import java.util.Set;
 
 public class User implements HttpSessionBindingListener{
     private String id;
@@ -12,6 +13,8 @@ public class User implements HttpSessionBindingListener{
     private String hobby;
     private String speciality;
     private String path;
+
+    private Set<Blog> blogs;
 
     public String getId() {
         return id;
@@ -82,5 +85,13 @@ public class User implements HttpSessionBindingListener{
     public void valueUnbound(HttpSessionBindingEvent httpSessionBindingEvent) {
         Map<User, HttpSession> map = (Map<User, HttpSession>) httpSessionBindingEvent.getSession().getServletContext().getAttribute("userMap");
         map.remove(this);
+    }
+
+    public Set<Blog> getBlogs() {
+        return blogs;
+    }
+
+    public void setBlogs(Set<Blog> blogs) {
+        this.blogs = blogs;
     }
 }

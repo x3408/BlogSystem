@@ -105,8 +105,8 @@
                     <div class="pagination">
                         <ul>
                             <c:if test="${blogPage.page != 1 && blogPage.totalPage != 0}">
-                                <li><a href="${pageContext.request.contextPath}/showBlogServlet?page=1">第一篇</a></li>
-                                <li><a href="${pageContext.request.contextPath}/showBlogServlet?page=${blogPage.page-1}">上一页</a></li>
+                                <li><a href="${pageContext.request.contextPath}/user_showBlog?page=1">第一篇</a></li>
+                                <li><a href="${pageContext.request.contextPath}/user_showBlog?page=${blogPage.page-1}">上一页</a></li>
                             </c:if>
                             <c:forEach var="i" begin="${blogPage.page-2>0?blogPage.page-2:1}"
                                        end="${blogPage.page+3>blogPage.totalPage?blogPage.totalPage:blogPage.page+3}" step="1">
@@ -114,12 +114,12 @@
                                     <li><a style="background-color: #ddd;">${i}</a></li>
                                 </c:if>
                                 <c:if test="${i != blogPage.page}">
-                                    <li><a href="${pageContext.request.contextPath}/showBlogServlet?page=${i}">${i}</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/user_showBlog?page=${i}">${i}</a></li>
                                 </c:if>
                             </c:forEach>
                             <c:if test="${blogPage.page != blogPage.totalPage && blogPage.totalPage != 0}">
-                                <li><a href="${pageContext.request.contextPath}/showBlogServlet?page=${blogPage.page+1}">下一篇</a></li>
-                                <li><a href="${pageContext.request.contextPath}/showBlogServlet?page=${blogPage.totalPage}">最后一篇</a></li>
+                                <li><a href="${pageContext.request.contextPath}/user_showBlog?page=${blogPage.page+1}">下一篇</a></li>
+                                <li><a href="${pageContext.request.contextPath}/user_showBlog?page=${blogPage.totalPage}">最后一篇</a></li>
                             </c:if>
                         </ul>
                     </div>

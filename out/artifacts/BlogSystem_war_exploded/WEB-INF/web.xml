@@ -3,6 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+    <!--让spring容器随web的启动而启动-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!--配置spring配置文件位置参数-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+    <!--map容器-->
+    <listener>
+        <listener-class>Listener.UserListener</listener-class>
+    </listener>
+
+
+    <!--字符编码过滤器-->
     <filter>
         <filter-name>encodeFilter</filter-name>
         <filter-class>Filter.encodeFilter</filter-class>
@@ -11,9 +28,13 @@
         <filter-name>AutoLoginFilter</filter-name>
         <filter-class>Filter.AutoLoginFilter</filter-class>
     </filter>
-    <listener>
-        <listener-class>Listener.UserListener</listener-class>
-    </listener>
+
+    <!--struts过滤器-->
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+
 
     <filter-mapping>
         <filter-name>encodeFilter</filter-name>
@@ -22,5 +43,11 @@
     <filter-mapping>
         <filter-name>AutoLoginFilter</filter-name>
         <url-pattern>/home.jsp</url-pattern>
+    </filter-mapping>
+
+    <!--struts的过滤器一定要放在最后生效-->
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 </web-app>
