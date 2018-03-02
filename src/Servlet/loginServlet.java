@@ -37,9 +37,10 @@ public class loginServlet extends HttpServlet {
                 cookie.setPath("/");
                 response.addCookie(cookie);
             }
-
+            //解决同一个浏览器登陆串号问题
             request.getSession().invalidate();
 
+            //解决不同浏览器登陆串号问题
             Map<User, HttpSession> map = (Map<User, HttpSession>) request.getServletContext().getAttribute("userMap");
             if (map.containsKey(user)) {
                 HttpSession session = map.get(user);
