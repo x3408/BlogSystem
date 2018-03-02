@@ -12,6 +12,8 @@ import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
@@ -80,8 +82,15 @@ public class BlogDAOImp extends HibernateDaoSupport implements BlogDAO {
         return new Long(count).intValue();*/
 
         //Criteria
-        DetachedCriteria dc = new DetachedCriteria();
-        dc.setProjection()
+        DetachedCriteria dc = DetachedCriteria.forClass(Integer.class);
+        dc.setProjection(Projections.rowCount());
+        List<Integer> byCriteria = (List<Integer>) getHibernateTemplate().findByCriteria(dc);
+
+        if(byCriteria != null && byCriteria.size()>0) {
+            return byCriteria.get(0);
+        } else {
+            return 0;
+        }
     }
 
     @Override
