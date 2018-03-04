@@ -7,29 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0817e501-be13-41af-b785-f9c447b94e69" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/Action/UserAction.class" afterPath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/Action/UserAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/DAO/DAOImp/BlogDAOImp$1.class" afterPath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/DAO/DAOImp/BlogDAOImp$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/DAO/DAOImp/BlogDAOImp.class" afterPath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/DAO/DAOImp/BlogDAOImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/Service/BlogService.class" afterPath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/Service/BlogService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/Servlet/loginServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/Servlet/loginServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/Action/UserAction.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/Action/UserAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/DAO/DAOImp/BlogDAOImp$1.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/DAO/DAOImp/BlogDAOImp$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/DAO/DAOImp/BlogDAOImp.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/DAO/DAOImp/BlogDAOImp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/Service/BlogService.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/Service/BlogService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/Servlet/loginServlet.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/Servlet/loginServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BlogSystem.iml" afterPath="$PROJECT_DIR$/BlogSystem.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/applicationContext.xml" afterPath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/struts.xml" afterPath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/WEB-INF/classes/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/addEssay.jsp" afterPath="$PROJECT_DIR$/out/artifacts/BlogSystem_war_exploded/addEssay.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Action/UserAction.java" afterPath="$PROJECT_DIR$/src/Action/UserAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/DAOImp/BlogDAOImp.java" afterPath="$PROJECT_DIR$/src/DAO/DAOImp/BlogDAOImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Service/BlogService.java" afterPath="$PROJECT_DIR$/src/Service/BlogService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/applicationContext.xml" afterPath="$PROJECT_DIR$/src/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/struts.xml" afterPath="$PROJECT_DIR$/src/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/applicationContext.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/struts.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/addEssay.jsp" afterPath="$PROJECT_DIR$/web/addEssay.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -698,8 +676,23 @@
       <workItem from="1519999457611" duration="1201000" />
       <workItem from="1520053483239" duration="2035000" />
       <workItem from="1520128228208" duration="7371000" />
-      <workItem from="1520143126329" duration="508000" />
+      <workItem from="1520143126329" duration="762000" />
     </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1520143685779</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1520143685779</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update">
+      <created>1520143793407</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1520143793407</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -735,7 +728,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162459000" />
+    <option name="totallyTimeSpent" value="162713000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -825,6 +818,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="67" />
@@ -897,6 +895,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -980,6 +979,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1066,6 +1066,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1121,6 +1122,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1194,6 +1196,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="85" column="30" lean-forward="true" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
+          <folding>
+            <element signature="e#2444#2445#0" expanded="true" />
+            <element signature="e#2474#2475#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
