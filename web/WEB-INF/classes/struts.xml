@@ -23,5 +23,12 @@
             <result name="toHome" type="redirect">/home.jsp</result>
             <result name="Login">/login.jsp</result>
         </action>
+        <action name="blog_*" class="Action.BlogAction" method="{1}">
+            <result name="toHomeLast" type="redirect">
+                <param name="location">home.jsp</param>
+                <param name="totalPage">${totalPage}</param>
+            </result>
+            <result name="login">/login.jsp</result>
+        </action>
     </package>
 </struts>

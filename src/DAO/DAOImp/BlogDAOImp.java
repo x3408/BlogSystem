@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.Set;
 
 public class BlogDAOImp extends HibernateDaoSupport implements BlogDAO {
-    private Session session;
     @Override
     public List<Blog> findPage(int page,int limit) {
         /*List<Blog> list = null;
@@ -145,15 +144,26 @@ public class BlogDAOImp extends HibernateDaoSupport implements BlogDAO {
         }
         return true;*/
 
-       Session session = HibernateUtil.getCurrentSession();
+//       Session session = HibernateUtil.getCurrentSession();
        /*User user1 = session.get(User.class, user.getId());
        user1.getBlogs().add(blog);*/
 
-        User user1 = session.get(User.class, user.getId());
+       /* User user1 = session.get(User.class, user.getId());
         Set<Blog> blogs = user1.getBlogs();
         blogs.add(blog);
-        session.save(user1);
+        session.save(user1);*/
 
-       return true;
+        boolean flag = getHibernateTemplate().execute(new HibernateCallback<Boolean>() {
+            @Override
+            public Boolean doInHibernate(Session session) throws HibernateException {
+                User user1 = session.get(User.class, user.getId());
+                Set<Blog> blogs = user1.getBlogs();
+                blogs.add(blog);
+                session.save(user1);
+                return true;
+            }
+        });
+
+       return flag;
     }
 }

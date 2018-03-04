@@ -30,7 +30,7 @@
 </head>
 <body>
     <div class="container-fluid">
-        <form action="${pageContext.request.contextPath}/addEssayServlet" method="post">
+        <form action="${pageContext.request.contextPath}/blog_addEssay" method="post">
             <%--标题--%>
             <div class="span12">
                 <input type="text" placeholder="标题" id="title" name="title" required="required">

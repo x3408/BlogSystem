@@ -12,6 +12,7 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class BlogService {
+    private BlogDAOImp dao;
 
     public BlogPage showPage(String s_page) {
         int page = Integer.parseInt(s_page);
@@ -81,14 +82,14 @@ public class BlogService {
         /*BlogDAO dao = new BlogDAOImp();
         boolean flag = dao.addEssay(blog, user);
         return flag;*/
-        Session session = HibernateUtil.getCurrentSession();
-        Transaction transaction = session.beginTransaction();
 
-        BlogDAO dao = new BlogDAOImp();
         boolean flag = dao.addEssay(blog, user);
 
-        transaction.commit();
 
         return flag;
+    }
+
+    public void setDao(BlogDAOImp dao) {
+        this.dao = dao;
     }
 }

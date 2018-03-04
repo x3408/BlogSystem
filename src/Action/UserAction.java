@@ -1,9 +1,11 @@
 package Action;
 
+import Bean.Blog;
 import Bean.BlogPage;
 import Bean.User;
 import Service.BlogService;
 import Service.UserService;
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -108,6 +110,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 
         return "toHome";
     }
+
+
 
     @Override
     public User getModel() {
