@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <!--DAO-->
+    <bean class="DAO.DAOImp.UserDAOImp" name="userDAOImp"></bean>
+    <bean class="DAO.DAOImp.BlogDAOImp" name="blogDAOImp">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <!--Service-->
+    <bean class="Service.UserService" name="userService">
+        <property name="dao" ref="userDAOImp"></property>
+    </bean>
+    <bean class="Service.BlogService" name="blogService">
+        <property name="dao" ref="blogDAOImp"></property>
+    </bean>
+
+    <!--Action-->
+    <bean class="Action.UserAction" name="userAction" scope="prototype">
+        <property name="userService" ref="userService"></property>
+        <property name="blogService" ref="blogService"></property>
+    </bean>
+
+    <!--读取c3p0配置文件-->
+    <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
+    <!--配置连接池-->
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" name="dataSource">
+        <property name="driverClass" value="${jdbc.driverClass}"></property>
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>
+        <property name="user" value="${jdbc.user}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+    <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="sessionFactory">
+        <!--将连接池注入sessionFactory中-->
+        <property name="dataSource" ref="dataSource"></property>
+        <!--配置hibernate-->
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+
+        <!--实体映射配置-->
+        <property name="mappingDirectoryLocations" value="classpath:Bean"></property>
+    </bean>
+
+    <bean name="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
+    <tx:advice transaction-manager="transactionManager" id="transactionInterceptor">
+        <tx:attributes>
+            <tx:method name="add*" isolation="REPEATABLE_READ" read-only="false" propagation="REQUIRED"/>
+            <tx:method name="get*" isolation="REPEATABLE_READ" read-only="true" propagation="REQUIRED"/>
+            <tx:method name="find*" isolation="REPEATABLE_READ" read-only="true" propagation="REQUIRED"/>
+            <tx:method name="check*" isolation="REPEATABLE_READ" read-only="true" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* Service.*Service.*(..))"></aop:pointcut>
+        <aop:advisor advice-ref="transactionInterceptor" pointcut-ref="pointcut"></aop:advisor>
+    </aop:config>
+</beans>
